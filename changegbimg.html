@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>改变背景</title>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        $(".change").click(function () {
+            // alert(11)
+            if($(".bg-img").css('display') == 'none'){
+                $('.bg-img').slideDown("slow");
+            }else{
+                $('.bg-img').slideUp("slow")
+            }
+        })
+        $("li").click(function () {
+            let i = $(this).attr("index");
+            console.log(i)
+            // $("body").css('background-image','url(\"img/'+i+'.jpg\")')
+            $('body').fadeOut(500,function(){
+                $(this).css('background-image','url(\"img/'+i+'.jpg\")')
+            }).fadeIn(1000); 
+        })
+    });
+    </script>
+    <style>
+    *{
+        margin: 0px;
+        padding: 0px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: 18px;
+
+    }
+    body{
+        background-image: url("img/1.jpg");
+    }
+     .change{
+        width: 50px;
+        height: 50px;
+        /* background-color: aqua; */
+        /* border-radius: 50px 0 0 0; */
+        float: right;
+        /* border: 1px solid red; */
+        background-image: url("img/upseek.png");
+    }
+     .change:hover{
+        background-position: 0 50px;
+        cursor: pointer;
+    }
+    .bg-img{
+        width: 100%;
+        height: 80px;
+        display: none;
+        overflow: hidden;
+        background-color: black;
+        position: absolute;
+        top:0px;
+        z-index: -1;
+    }
+    .bg-img li{
+        list-style: none;
+        float: left;
+        margin-left: 5%;
+    }
+    .bg-img li:hover{
+        cursor: pointer;
+    }
+    .bg-img li img{
+        height: 80px;
+    }
+    </style>
+</head>
+<body>
+    <div class="bg-img">
+        <ul>
+            <li index="1">
+                <img src="img/1-1.jpg" alt="">
+            </li>
+            <li index="2">
+                <img src="img/2-2.jpg" alt="">
+            </li>
+            <li index="9">
+                <img src="img/9-9.jpg" alt="">
+            </li>
+            <li index="12">
+                <img src="img/12-12.jpg" alt="">
+            </li>
+            <li index="16">
+                <img src="img/16-16.jpg" alt="">
+            </li>
+            <li index="13">
+                <img src="img/13-13.jpg" alt="">
+            </li>
+        </ul>
+    </div>
+    <div class="">
+        
+        <div class="change">
+            
+        </div>
+    </div>
+    
+</body>
+</html>
